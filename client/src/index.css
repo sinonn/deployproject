@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.navitem a:hover {
+  color: rgba(248, 252, 248, 0.911) !important;
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+small {
+  color: rgb(241, 16, 16);
+}
+
+.slide-description p {
+  color: #fff;
+}
+
+.slide-description h5 {
+  color: #fff;
+}
+
+.textcard h1 {
+  color: rgba(46, 45, 45, 0.849);
+  text-transform: capitalize;
+  font-size: 40px;
+}
+
+.textcard h3 {
+  color: rgba(46, 45, 45, 0.849);
+  font-size: 30px;
+}
+.textcard h4 {
+  color: rgba(46, 45, 45, 0.849);
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.panel-dashboard {
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+/* .col-auto {
+  padding: 10px !important;
+  margin: 10px !important;
+  width: 100%;
+  border: 1px solid #ccc;
+} */
+
+.row {
+  width: 100%;
+}
+
+.flot {
+  position: relative;
+  float: right;
+  right: 40%;
+}
+
+/* .img-size {
+  padding: 10px !important;
+  width: 300px !important;
+  height: 300px !important;
+  border: 1px solid rgba(194, 191, 191, 0.39);
+} */
+
+.img-size {
+  width: 200px;
+  height: 300px;
+  /* padding-top: 1.5rem; */
+  margin-right: 1rem;
+}
+
+.title-book {
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+.p-desc {
+  font-size: 1rem !important;
+  letter-spacing: 0.1rem;
+  color: rgb(41, 43, 43);
+}
+
+.bookss {
+  /* border: 5px solid black; */
+  margin: 10px;
+}
+
+.desbook {
+  display: flex;
+  padding: 1.5rem;
+}
+
+.bg {
+  background-image: url(./components/assets/images//bg.jpg);
+  /* background: orange; */
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.95);
+
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 255, 255, 0.475);
+  border-radius: 1rem;
+}
+
+.iconss {
+  background-image: url(./components/assets/images/logo.png);
+  width: 70px;
+  height: 70px;
+  background-position: center;
+  background-size: cover;
+}
+
+.reg {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputreg {
+  @apply border-gray-400 w-[350px] border-2 h-8 p-4 rounded-xl focus:outline-none text-lg mb-1 block;
+}
+
+.lib {
+  background-image: url(./components/assets/images/lib.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: gray;
+  background-blend-mode: multiply;
+}
+
+.displaygrid {
+  display: grid;
+  grid-template-columns: 50px repeat(6, 1fr) 50px;
+  grid-template-rows: repeat(4, 1fr) 50px;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.box-right {
+  background-image: url(./components/assets/images//bg.jpg);
+  /* background: orange; */
+  background-position: center;
+  background-size: cover;
+}
+
+.diagonal {
+  /* background-image: linear-gradient(to top right, #ff0000 50%, white 50%); */
+  background-image: linear-gradient(to top, #ff0000 50%, white 50%);
+}
+/* rgb(229, 157, 157) */
+
+.icon {
+  background-image: url(./components/assets/images/logo.png);
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+}
+
+.shadowbook {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.person {
+  background-image: url(./components/assets/images/unauthorized-person.png);
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+}
+
+.stackbooks {
+  background-image: url(./components/assets/images/stack-of-books.png);
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+}
+
+.borrowed {
+  background-image: url(./components/assets/images/read.png);
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+}
+
+.student {
+  background-image: url(./components/assets/images/student.png);
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+}
+
+.quantity::-webkit-inner-spin-button,
+.quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
