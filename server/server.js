@@ -30,6 +30,14 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+app.use(
+  cors({
+    origin: ['http://deploy-mern-1whq.vercel.app'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
+
 app.post('/api/register', async (req, res) => {
   try {
     const password = req.body.password;
