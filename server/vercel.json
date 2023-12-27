@@ -3,10 +3,6 @@
     {
       "src": "/",
       "destination": "/"
-    },
-    {
-      "src": "/test",
-      "dest": "/"
     }
   ]
 }
