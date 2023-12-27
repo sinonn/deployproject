@@ -1,5 +1,17 @@
 {
   "name": "frontend",
+  "builds": [
+    {
+      "src": "./server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "destination": "/"
+    }
+  ],
   "private": true,
   "version": "0.0.0",
   "type": "module",
