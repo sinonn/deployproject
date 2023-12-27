@@ -18,7 +18,9 @@ const MONGO_URL = process.env.MONGO_URL;
 const JWT_SECRET = process.env.JWT_SECRET;
 const FRONTEND = process.env.FRONTEND;
 const PORT = process.env.PORT || 3000;
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({path: __dirname + '/.env'});
+}
 var corsOptions = {
   origin: FRONTEND, //multiple access ['http://example.com', 'www.facebook.com']
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -29,14 +31,6 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
-app.use(
-  cors({
-    origin: ['http://deploy-mern-1whq.vercel.app'],
-    methods: ['POST', 'GET'],
-    credentials: true,
-  })
-);
 
 app.post('/api/register', async (req, res) => {
   try {
@@ -579,3 +573,10 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend', 'build')));
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend', 'build', 'index.html'));
+  });
+}

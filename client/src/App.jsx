@@ -9,7 +9,7 @@ export const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
   return (
-    <Routers>
+    <Routers basename="/">
       <Navbarlink />
       <ToastContainer />
     </Routers>
