@@ -24,6 +24,13 @@ var corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.FRONTEND_URL,
+  })
+);
+
 const app = express();
 app.use(cors(corsOptions));
 app.use(cookieParser());
