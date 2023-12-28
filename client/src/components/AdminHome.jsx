@@ -3,6 +3,7 @@ import {Card, Typography} from '@material-tailwind/react';
 import Button from '@mui/material/Button';
 import {toast} from 'react-toastify';
 import AdminDashboard from './adminside/AdminDashboard';
+import {VITE_BACKEND_URL} from '../App';
 
 export default function AdminHome({userData}) {
   const [borrowedBooksCount, setBorrowedBooksCount] = useState(0);
@@ -13,7 +14,7 @@ export default function AdminHome({userData}) {
   const fetchBorrowedBooksCount = async () => {
     try {
       const response = await fetch(
-        'http://localhost:3000/api/getBorrowedBooksCount'
+        `${VITE_BACKEND_URL}/api/getBorrowedBooksCount`
       );
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -32,7 +33,7 @@ export default function AdminHome({userData}) {
   const deleteUser = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/delete-user/${userId}`,
+        `${VITE_BACKEND_URL}/api/delete-user/${userId}`,
         {
           method: 'DELETE',
         }
@@ -56,7 +57,7 @@ export default function AdminHome({userData}) {
   const fetchTotalBooksCount = async () => {
     try {
       const response = await fetch(
-        'http://localhost:3000/api/getTotalBooksCount'
+        `${VITE_BACKEND_URL}/api/getTotalBooksCount`
       );
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -73,7 +74,7 @@ export default function AdminHome({userData}) {
   };
 
   const fetchStudentCount = async () => {
-    fetch('http://localhost:3000/api/getTotalStudentsCount')
+    fetch(`${VITE_BACKEND_URL}/api/getTotalStudentsCount`)
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 'ok') {
@@ -89,7 +90,7 @@ export default function AdminHome({userData}) {
 
   const fetchAllStudents = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/getAllStudents');
+      const response = await fetch(`${VITE_BACKEND_URL}/api/getAllStudents`);
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
