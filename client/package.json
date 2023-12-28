@@ -5,20 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm --prefix ../server run build",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "builds": [
-    {
-      "src": "client/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "server/**",
-      "use": "@vercel/node"
-    }
-  ],
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
