@@ -19,11 +19,17 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const FRONTEND = process.env.FRONTEND;
 const PORT = process.env.PORT || 3000;
 
+// var corsOptions = {
+//   origin: FRONTEND, //multiple access ['http://example.com', 'www.facebook.com']
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+
 var corsOptions = {
-  origin: FRONTEND, //multiple access ['http://example.com', 'www.facebook.com']
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: '*', // Allow requests from any origin
+  optionsSuccessStatus: 200,
 };
 
+app.use(cors(corsOptions));
 const app = express();
 app.use(cors(corsOptions));
 app.use(cookieParser());
