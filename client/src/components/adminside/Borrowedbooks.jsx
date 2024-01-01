@@ -120,13 +120,19 @@ export default function Borrowedbooks({userType}) {
   //deleting book
   const deleteborrowedBook = async (id, bookname, status) => {
     try {
-      await axios.delete(`${VITE_BACKEND_URL}/api/delete-borrowedbook/${id}`);
-      const toastMessage =
-        status === 'canceled'
-          ? `Delete canceled book "${bookname}" successfully`
-          : `Delete book "${bookname}" successfully`;
-      toast.success(toastMessage);
-      getAllBooks();
+      const confirmation = window.confirm(
+        `Are you sure you want to delete the borrowed book "${bookname}"?`
+      );
+
+      if (confirmation) {
+        await axios.delete(`${VITE_BACKEND_URL}/api/delete-borrowedbook/${id}`);
+        const toastMessage =
+          status === 'canceled'
+            ? `Delete canceled book "${bookname}" successfully`
+            : `Delete book "${bookname}" successfully`;
+        toast.success(toastMessage);
+        getAllBooks();
+      }
     } catch (error) {
       toast.error(error.message);
     }

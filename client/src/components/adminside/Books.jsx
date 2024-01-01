@@ -121,11 +121,17 @@ export default function Books({userType}) {
   //end edit modal
 
   //deleting book
-  const deleteBook = async (id) => {
+  const deleteBook = async (id, bookname) => {
     try {
-      await axios.delete(`${VITE_BACKEND_URL}/api/delete-book/${id}`);
-      toast.success('Delete a book successfully');
-      getAllBooks();
+      const shouldDelete = window.confirm(
+        `Are you sure you want to delete the book "${bookname}"?`
+      );
+
+      if (shouldDelete) {
+        await axios.delete(`${VITE_BACKEND_URL}/api/delete-book/${id}`);
+        toast.success('Delete a book successfully');
+        getAllBooks();
+      }
     } catch (error) {
       toast.error(error.message);
     }

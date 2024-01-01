@@ -32,23 +32,30 @@ export default function AdminHome({userData}) {
 
   const deleteUser = async (userId) => {
     try {
-      const response = await fetch(
-        `${VITE_BACKEND_URL}/api/delete-user/${userId}`,
-        {
-          method: 'DELETE',
-        }
+      // Display confirmation dialog
+      const confirmDelete = window.confirm(
+        'Are you sure you want to delete this user?'
       );
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      if (confirmDelete) {
+        const response = await fetch(
+          `${VITE_BACKEND_URL}/api/delete-user/${userId}`,
+          {
+            method: 'DELETE',
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        toast.success('User deleted successfully');
+
+        // Update the state or perform other actions as needed
+        // For example, you can fetch the updated user list after deletion
+        fetchAllStudents();
+        fetchStudentCount();
       }
-
-      toast.success('User deleted successfully');
-
-      // Update the state or perform other actions as needed
-      // For example, you can fetch the updated user list after deletion
-      fetchAllStudents();
-      fetchStudentCount();
     } catch (error) {
       console.error('Error deleting user:', error.message);
     }
@@ -118,7 +125,6 @@ export default function AdminHome({userData}) {
   };
 
   return (
-    // h-[calc(100vh-2rem)]
     <>
       <div className={'flex bg-blue-gray-50 '}>
         <AdminDashboard />

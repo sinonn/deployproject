@@ -101,6 +101,7 @@ export default function Borrowedbookstudent() {
   //       });
   //     });
   // }, []);
+  // ...
   const handleCancelBooking = async (referenceCode, bookedByUserId) => {
     try {
       const loggedInUserId = userData._id;
@@ -111,28 +112,35 @@ export default function Borrowedbookstudent() {
         return;
       }
 
-      const response = await axios.post(
-        `${VITE_BACKEND_URL}/api/cancel-booking`,
-        {
-          referenceCode,
-        }
+      const confirmation = window.confirm(
+        `Are you sure you want to cancel the booking with reference code "${referenceCode}"?`
       );
 
-      console.log('Cancellation response:', response.data);
-
-      if (response.data.status === 'ok') {
-        // Update the state to reflect the cancellation
-        setData((prevData) =>
-          prevData.filter((item) => item.referenceCode !== referenceCode)
+      if (confirmation) {
+        const response = await axios.post(
+          `${VITE_BACKEND_URL}/api/cancel-booking`,
+          {
+            referenceCode,
+          }
         );
-      } else {
-        // Handle the case where the cancellation was not successful
-        console.error('Cancellation failed');
+
+        console.log('Cancellation response:', response.data);
+
+        if (response.data.status === 'ok') {
+          // Update the state to reflect the cancellation
+          setData((prevData) =>
+            prevData.filter((item) => item.referenceCode !== referenceCode)
+          );
+        } else {
+          // Handle the case where the cancellation was not successful
+          console.error('Cancellation failed');
+        }
       }
     } catch (error) {
       console.error('Error canceling booking:', error);
     }
   };
+  // ...
 
   const handleDeleteCancelledBook = async (bookId) => {
     try {
