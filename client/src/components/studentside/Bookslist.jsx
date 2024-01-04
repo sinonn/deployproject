@@ -341,7 +341,7 @@ export default function Booklist() {
                   color="blue-gray"
                   className="font-extrabold leading-none opacity-70 text-center"
                 >
-                  Choose borrowing duration
+                  Choose borrowing duration / Day
                 </Typography>
               </th>
             </tr>

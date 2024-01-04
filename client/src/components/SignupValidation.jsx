@@ -16,7 +16,7 @@ export const signupValidation = Yup.object({
   course: Yup.string()
     .required('Course is required')
     .matches(
-      /^(BSIT|BEED|BSIE|BSF|AB ENGLISH|BIT|BEED|FORESTRY|PSYCHOLOGY)$/i,
+      /^(BSIT|BEED|BSIE|BSF|AB ENGLISH|BIT|BEED|FORESTRY|PSYCHOLOGY|BAEL)$/i,
       'Invalid course. CTU Courses Only'
     ),
   yearandsection: Yup.string()

@@ -518,6 +518,7 @@ export default function Books({userType}) {
                       onChange={(e) => setBookname(e.target.value)}
                       placeholder="Enter Book Name"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -535,6 +536,7 @@ export default function Books({userType}) {
                       onChange={(e) => setBooknumbercode(e.target.value)}
                       placeholder="Enter Number / Code"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -550,6 +552,7 @@ export default function Books({userType}) {
                       onChange={(e) => setISBNNumber(e.target.value)}
                       placeholder="Enter ISBN Number"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -567,6 +570,7 @@ export default function Books({userType}) {
                       onChange={(e) => setAuthorname(e.target.value)}
                       placeholder="Enter Author Name"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -582,6 +586,7 @@ export default function Books({userType}) {
                       onChange={(e) => setPublishername(e.target.value)}
                       placeholder="Enter Publisher Name"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -599,6 +604,7 @@ export default function Books({userType}) {
                       onChange={(e) => setPublisheddate(e.target.value)}
                       placeholder="Enter Date Published"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -614,6 +620,7 @@ export default function Books({userType}) {
                       onChange={(e) => setQuantity(e.target.value)}
                       placeholder="Enter Quantity"
                       autoComplete="off"
+                      required
                     />
                   </Form.Group>
                 </Col>
@@ -631,6 +638,7 @@ export default function Books({userType}) {
                       name="publisheddate"
                       onChange={covertToBase64}
                       placeholder="Enter Date Published"
+                      required
                     />
                   </Form.Group>
                 </Col>
